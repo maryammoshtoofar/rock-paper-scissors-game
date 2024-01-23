@@ -5,19 +5,19 @@ const usePosition = (order: 1 | 2 | 3 | 4 | 5) => {
   useEffect(() => {
     switch (order) {
       case 1:
-        setPosition("-top-10");
+        setPosition("-translate-y-1/4");
         break;
       case 2:
-        setPosition("right-2 top-12 sm:-right-4 sm:top-16 md:-right-10");
+        setPosition("translate-x-full translate-y-1/2");
         break;
       case 3:
-        setPosition("-bottom-8 right-10 sm:-bottom-4 sm:right-0 md:-bottom-10");
+        setPosition("translate-y-44 sm:translate-y-56 translate-x-3/4");
         break;
       case 4:
-        setPosition("-bottom-8 left-10 sm:-bottom-4 sm:left-0 md:-bottom-10");
+        setPosition("translate-y-44 sm:translate-y-56 -translate-x-3/4");
         break;
       case 5:
-        setPosition("left-2 top-12 sm:-left-4 sm:top-16 md:-left-10");
+        setPosition("-translate-x-full translate-y-1/2");
         break;
     }
   }, [order]);
