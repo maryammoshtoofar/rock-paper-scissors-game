@@ -6,6 +6,7 @@ import {
   SetStateAction,
 } from "react";
 import { GameChoices } from "../types/types";
+import { generateComputerChoice, generateGameResult, generateScore } from "../utils/utils";
 
 type GameInfo = {
   userChoice: GameChoices | null;
@@ -16,6 +17,7 @@ type GameInfo = {
 interface GameContextType {
   gameInfo: GameInfo;
   setGameInfo: Dispatch<SetStateAction<GameInfo>>;
+
 }
 
 export const GameContext = createContext<GameContextType>({

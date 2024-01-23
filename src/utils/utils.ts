@@ -1,13 +1,13 @@
 import { ComputerChoices, GameResult } from "../types/types";
 
 export const generateComputerChoice = () => {
-  const possibleChoices = <ComputerChoices>[
+  const possibleChoices = [
     "rock",
     "paper",
     "scissors",
     "lizard",
     "spock",
-  ];
+  ] as ComputerChoices;
   const randomNumber = Math.floor(Math.random() * possibleChoices.length);
   const computerChoice = possibleChoices[randomNumber];
   return computerChoice;
