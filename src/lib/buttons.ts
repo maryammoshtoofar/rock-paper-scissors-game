@@ -3,9 +3,10 @@ import paper from "../assets/images/icon-paper.svg";
 import rock from "../assets/images/icon-rock.svg";
 import lizard from "../assets/images/icon-lizard.svg";
 import spock from "../assets/images/icon-spock.svg";
-export type ButtonProps = {
+import { GameChoices } from "../types/types";
+type ButtonProps = {
   id: number;
-  type: "scissors" | "paper" | "rock" | "lizard" | "spock";
+  type: GameChoices;
   img: string;
   order: 1 | 2 | 3 | 4 | 5;
 };
