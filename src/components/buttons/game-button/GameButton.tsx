@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { GameContext } from "../../../context/GameContext";
+import { useEffect } from "react";
+import useGame from "../../../hooks/useGame";
 import usePosition from "../../../hooks/usePosition";
 import { GameChoices } from "../../../types/types";
 
@@ -8,19 +8,32 @@ type Props = {
   type: GameChoices;
   img: string;
   order: 1 | 2 | 3 | 4 | 5;
-  startGame: (type: GameChoices) => void;
 };
-const GameButton = ({ type, order, img, startGame }: Props) => {
-  const { gameInfo } = useContext(GameContext);
+const GameButton = ({ type, order, img }: Props) => {
+  const {
+    userChoice,
+    userButtonStyle,
+    status,
+    startGame,
+    computerButtonStyle,
+    computerChoice,
+  } = useGame();
   const position = usePosition(order);
+
+  useEffect(() => {
+    console.log(userChoice);
+    console.log(computerChoice);
+  }, [userChoice, computerChoice]);
 
   return (
     <button
       onClick={() => startGame(type)}
       className={`gradient-border absolute rounded-full flex flex-col items-center w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 ${type} ${
-        gameInfo.userChoice === type
-          ? gameInfo.selectedButtonStyle
-          : gameInfo.status === "active"
+        userChoice === type
+          ? userButtonStyle
+          : computerChoice === type
+          ? computerButtonStyle
+          : status === "active"
           ? "opacity-0 translate-x-full translate-y-1/2"
           : position
       }`}

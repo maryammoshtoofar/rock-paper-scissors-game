@@ -4,7 +4,7 @@ import rock from "../assets/images/icon-rock.svg";
 import lizard from "../assets/images/icon-lizard.svg";
 import spock from "../assets/images/icon-spock.svg";
 import { GameChoices } from "../types/types";
-type ButtonProps = {
+export type ButtonProps = {
   id: number;
   type: GameChoices;
   img: string;
