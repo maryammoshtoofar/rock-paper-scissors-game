@@ -3,13 +3,9 @@ import buttons from "../../lib/buttons";
 import ButtonsContainer from "./buttons-container/ButtonsContainer";
 import ButtonPlaceholder from "./btn-placeholder/ButtonPlaceholder";
 import useGame from "../../hooks/useGame";
-import { useEffect, useRef, useState } from "react";
 
 const Buttons = () => {
   const { secondButton, result, status, resetBoard } = useGame();
-  useEffect(() => {
-    console.log(secondButton);
-  }, [secondButton]);
 
   return (
     <ButtonsContainer>

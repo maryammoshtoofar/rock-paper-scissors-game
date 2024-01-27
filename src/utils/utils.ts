@@ -57,11 +57,3 @@ export const generateGameResult = (
   }
   return result;
 };
-
-export const generateScore = (result: GameResult, score: number) => {
-  let finalScore: number = score;
-  if (result === "win") {
-    finalScore = score + 1;
-  }
-  return finalScore;
-};
