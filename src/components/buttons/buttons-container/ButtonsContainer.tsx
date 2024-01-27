@@ -9,7 +9,7 @@ const ButtonsContainer = ({ children }: Props) => {
     <main className="relative flex flex-col items-center max-w-full">
       <span
         className={`${
-          status === "active"
+          status !== "idle"
             ? "opacity-1 -translate-x-16 translate-y-28 sm:-translate-x-52 sm:translate-y-3/4 sm:scale-[1.5] lg:-translate-x-80 lg:-translate-y-full lg:scale-[2.5] "
             : "opacity-0"
         } text-white uppercase absolute transition ease-in-out delay-900`}
@@ -18,7 +18,7 @@ const ButtonsContainer = ({ children }: Props) => {
       </span>
       <span
         className={`${
-          status === "active"
+          status !== "idle"
             ? "opacity-1 translate-x-16 translate-y-28 sm:translate-x-52 sm:translate-y-3/4 sm:scale-[1.5] lg:translate-x-80 lg:-translate-y-full lg:scale-[2.5] "
             : "opacity-0"
         } text-white uppercase absolute transition ease-in-out delay-900`}
@@ -28,7 +28,7 @@ const ButtonsContainer = ({ children }: Props) => {
       <img
         src={pentagon}
         className={`${
-          status !== "active" ? "opacity-1" : "opacity-0"
+          status === "idle" ? "opacity-1" : "opacity-0"
         } w-3/4 sm:w-full max-w-full`}
       />
       {children}

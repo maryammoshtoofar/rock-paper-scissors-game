@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import useGame from "../../../hooks/useGame";
 import usePosition from "../../../hooks/usePosition";
 import { GameChoices } from "../../../types/types";
@@ -8,8 +7,9 @@ type Props = {
   type: GameChoices;
   img: string;
   order: 1 | 2 | 3 | 4 | 5;
+  secondButton?: true;
 };
-const GameButton = ({ type, order, img }: Props) => {
+const GameButton = ({ type, order, img, secondButton }: Props) => {
   const {
     userChoice,
     userButtonStyle,
@@ -20,23 +20,20 @@ const GameButton = ({ type, order, img }: Props) => {
   } = useGame();
   const position = usePosition(order);
 
-  useEffect(() => {
-    console.log(userChoice);
-    console.log(computerChoice);
-  }, [userChoice, computerChoice]);
+  const conditionalStyle = secondButton
+    ? `${computerButtonStyle} `
+    : userChoice === type
+    ? userButtonStyle
+    : computerChoice === type
+    ? computerButtonStyle
+    : status === "active" || status === "over"
+    ? "opacity-0 translate-x-full translate-y-1/2"
+    : position;
 
   return (
     <button
       onClick={() => startGame(type)}
-      className={`gradient-border absolute rounded-full flex flex-col items-center w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 ${type} ${
-        userChoice === type
-          ? userButtonStyle
-          : computerChoice === type
-          ? computerButtonStyle
-          : status === "active"
-          ? "opacity-0 translate-x-full translate-y-1/2"
-          : position
-      }`}
+      className={`gradient-border absolute rounded-full flex flex-col items-center w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 ${type} ${conditionalStyle}`}
     >
       <div className="box-shadow bg-white rounded-full flex flex-col items-center justify-center w-full h-full">
         <img src={img} className="w-10" alt={type} />

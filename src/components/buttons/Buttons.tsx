@@ -1,24 +1,36 @@
 import Button from "./game-button/GameButton";
-import buttons, { ButtonProps } from "../../lib/buttons";
+import buttons from "../../lib/buttons";
 import ButtonsContainer from "./buttons-container/ButtonsContainer";
-import { useContext, useEffect, useState } from "react";
-import {
-  generateComputerChoice,
-  generateGameResult,
-  generateScore,
-} from "../../utils/utils";
-import { GameContext } from "../../context/GameContext";
-import { GameChoices } from "../../types/types";
 import ButtonPlaceholder from "./btn-placeholder/ButtonPlaceholder";
-import GameButton from "./game-button/GameButton";
+import useGame from "../../hooks/useGame";
+import { useEffect, useRef, useState } from "react";
 
 const Buttons = () => {
+  const { secondButton, result, status, resetBoard } = useGame();
+  useEffect(() => {
+    console.log(secondButton);
+  }, [secondButton]);
+
   return (
     <ButtonsContainer>
       {buttons.map((button) => (
         <Button key={button.id} {...button} />
       ))}
       <ButtonPlaceholder />
+      {secondButton && (
+        <Button secondButton key={secondButton.id} {...secondButton} />
+      )}
+      {status === "over" && (
+        <div className="absolute  w-1/2 uppercase flex flex-col text-white items-center text-4xl gap-4 top-36 md:top-1/2 ">
+          you {result}
+          <button
+            onClick={resetBoard}
+            className="text-base leading-loose w-full uppercase bg-white text-dark px-10 py-2 hover:text-red-600 transition-all rounded-md"
+          >
+            play again
+          </button>
+        </div>
+      )}
     </ButtonsContainer>
   );
 };
