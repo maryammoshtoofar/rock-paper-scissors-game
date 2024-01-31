@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import CloseModalButton from "./close-modal-btn/CloseModalButton";
 import GameRules from "./game-rules/GameRules";
 import Overlay from "./overlay/Overlay";
