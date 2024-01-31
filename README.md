@@ -57,5 +57,6 @@ I'd like to continue working on rendering elements on the page based on state ch
 ## Author
 
 - Website - [Maryam Moshtoofar](https://maryammoshtoofar.github.io/)
+- Frontend Mentor - [@maryammoshtoofar](https://www.frontendmentor.io/profile/maryammoshtoofar)
 - CodePen - [@maryammoshtoofar](https://codepen.io/maryammoshtoofar)
 
