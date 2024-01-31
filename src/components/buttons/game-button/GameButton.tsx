@@ -35,9 +35,9 @@ const GameButton = ({ type, order, img, secondButton }: Props) => {
       onClick={() => startGame(type)}
       className={`gradient-border absolute rounded-full flex flex-col items-center w-24 h-24 max-[308px]:w-20 max-[308px]:h-20 sm:w-32 sm:h-32 ${type} ${conditionalStyle}`}
     >
-      <div className="box-shadow bg-white rounded-full flex flex-col items-center justify-center w-full h-full">
+      <span className="box-shadow bg-white rounded-full flex flex-col items-center justify-center w-full h-full">
         <img src={img} className="w-10 max-[308px]:w-8" alt={type} />
-      </div>
+      </span>
     </button>
   );
 };
