@@ -27,6 +27,7 @@ const ButtonsContainer = ({ children }: Props) => {
       </span>
       <img
         src={pentagon}
+        alt="pentagon"
         className={`${
           status === "idle" ? "opacity-1" : "opacity-0"
         } w-3/4 sm:w-full max-w-full`}
